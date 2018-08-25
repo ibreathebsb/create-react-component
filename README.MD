@@ -13,19 +13,19 @@ Save the trouble copy paste and rename when creating new react component with ty
 
   **Specify language(default to `ts`):**
 
-    `ts`: typescript
+    ts: typescript
 
-    `js`: javascript
+    js: javascript
 
 `-t, --type [TYPE]`
 
   **Specify component type(default to `c`):**
 
-    `s`: Stateless Functional Component`
+    s: Stateless Functional Component`
 
-    `p`: PureComponent
+    p: PureComponent
 
-    `c`: Component
+    c: Component
 
 ## Output
 
@@ -50,7 +50,7 @@ MyComponent/
 ```scss
 
 @charset 'utf-8';
-.__REPLACE__ {
+.MyComponent {
 
 }
 
@@ -60,15 +60,15 @@ MyComponent/
 
 ``` tsx
 import * as React from 'react'
-import cStyle from './__REPLACE__.scss'
+import cStyle from './MyComponent.scss'
 
-type __REPLACE__Props = {}
-type __REPLACE__State = {}
+type MyComponentProps = {}
+type MyComponentState = {}
 
-export class __REPLACE__ extends React.Component<__REPLACE__Props, __REPLACE__State> {
+export class MyComponent extends React.Component<MyComponentProps, MyComponentState> {
   public render() {
     return (
-      <div className={cStyle.__REPLACE__}>__REPLACE__</div>
+      <div className={cStyle.MyComponent}>MyComponent</div>
     )
   }
 }
@@ -79,7 +79,7 @@ export class __REPLACE__ extends React.Component<__REPLACE__Props, __REPLACE__St
 
 ```ts
 
-import { __REPLACE__ } from './__REPLACE__'
-export default __REPLACE__
+import { MyComponent } from './MyComponent'
+export default MyComponent
 
 ```

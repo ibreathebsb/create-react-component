@@ -10,25 +10,25 @@ const REPLACE = /__REPLACE__/g
  * @param {string} componentName
  */
 module.exports = (lang, type, componentName) => {
-  console.log(lang, type, componentName)
+  log.info(`Creating ${componentName}...`)
   const tempalteDir = path.join(__dirname, `template/${lang}/${type}`)
   const cwd = process.cwd()
   const componentDir = path.join(cwd, componentName)
   // check if file exist
   try {
     if (fs.existsSync(componentDir)) {
-      log(`${componentDir} already exists!`)
+      log.error(`${componentDir} already exists!`)
       return
     }
   } catch (e) {
-    log(e.message)
+    log.error(e.message)
     return
   }
   // mkdir
   try {
     fs.mkdirpSync(componentDir)
   } catch (e) {
-    log(`Can't create directory ${componentDir}`)
+    log.error(`Can't create directory ${componentDir}`)
     return
   }
   // create and write
@@ -49,7 +49,9 @@ module.exports = (lang, type, componentName) => {
       }
     )
   } catch (e) {
-    log(e)
+    log.error(e)
     return
   }
+  log.success(`Success! Happy coding!`)
+
 }
