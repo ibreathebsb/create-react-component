@@ -19,13 +19,13 @@ Save the trouble copy paste and rename when creating new react component with ty
 
 `-t, --type [TYPE]`
 
-**Specify component type:**
+  **Specify component type:**
 
-  `s`: Stateless Functional Component
+    `s`: Stateless Functional Component
 
-  `p`: PureComponent
+    `p`: PureComponent
 
-  `c`: Component
+    `c`: Component
 
 ## Output
 
