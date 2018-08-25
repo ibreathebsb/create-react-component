@@ -1,4 +1,4 @@
-# create-react-component-ts
+# create-react-component
 
 Save the trouble copy paste and rename when creating new react component with typescript/javascript
 
@@ -19,9 +19,9 @@ Save the trouble copy paste and rename when creating new react component with ty
 
 `-t, --type [TYPE]`
 
-  **Specify component type:**
+  **Specify component type(default to `c`):**
 
-    `s`: Stateless Functional Component
+    `s`: Stateless Functional Component`
 
     `p`: PureComponent
 
