@@ -1,2 +1,5 @@
-import { __REPLACE__ } from './__REPLACE__'
-export default __REPLACE__
+module.exports = {
+  component: require('./componentTemplate'),
+  style: require('./styleTemplate'),
+  index: require('./indexTemplate')
+}

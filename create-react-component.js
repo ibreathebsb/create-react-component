@@ -1,6 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 const log = require('./utils').log
+const tempate = require('./template')
 
 const REPLACE = /__REPLACE__/g
 /**
@@ -32,26 +33,36 @@ module.exports = (lang, type, componentName) => {
     return
   }
   // create and write
-  const templateNames = [`__REPLACE__.${lang}x`, `__REPLACE__.scss`, `index.${lang}`]
+  const { component, style, index } = tempate[lang][type]
+  const componentTemplate = component(componentName)
+  const styleTemplate = style(componentName)
+  const indexTemplate = index(componentName)
+  const pairs = [
+    {
+      tempate: componentTemplate,
+      filename: `${componentName}.${lang}x`
+    },
+    {
+      tempate: styleTemplate,
+      filename: `${componentName}.scss`
+    },
+    {
+      tempate: indexTemplate,
+      filename: `index.${lang}`
+    }
+  ]
   try {
-    templateNames.forEach(
-      (file) => {
-        const newFileName = file.replace(REPLACE, componentName)
-        const src = path.resolve(tempalteDir, file)
-        const dest = path.resolve(componentDir, newFileName)
+    pairs.forEach(
+      ({ tempate, filename }) => {
+        const dest = path.resolve(componentDir, filename)
         fs.createFileSync(dest)
-        const content = fs.readFileSync(src, {
-          encoding: 'UTF-8'
-        })
-        fs.writeFileSync(dest, content.replace(REPLACE, componentName), {
-          encoding: 'UTF-8'
-        })
+        fs.writeFileSync(dest, tempate, { encoding: 'UTF-8' })
       }
     )
   } catch (e) {
     log.error(e)
     return
   }
-  log.success(`Success! Happy coding!`)
+  log.success(`Success! Happy hacking!`)
 
 }
