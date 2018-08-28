@@ -5,6 +5,7 @@
 function styleTemplate(Component) {
   return (
     `@charset 'utf-8';
+
 .${Component} {
 
 }

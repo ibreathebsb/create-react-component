@@ -1,11 +1,12 @@
 /**
  *
  * @param {string} Component component name
+ * @param { boolean } cssmodule whether to use cssmodule or not
  */
-function componentTemplate(Component) {
+function componentTemplate(Component, cssmodule) {
   return (
     `import * as React from 'react'
-import cStyle from './${Component}.scss'
+${cssmodule ? `import cStyle from './${Component}.scss'`: `import './${Component}.scss'` }
 
 type ${Component}Props = {
   propName: string
@@ -13,7 +14,7 @@ type ${Component}Props = {
 
 export const ${Component}: React.SFC<${Component}Props> = ({ propName }) => {
   return (
-    <div className={cStyle.${Component}}>${Component}</div>
+    <div className=${cssmodule ? `{cStyle.${Component}}` : `'${Component}'`}>${Component}</div>
   )
 }
 `)

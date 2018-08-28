@@ -21,15 +21,16 @@ program
                       `,
     oneOf(['s', 'p', 'c'], 'c'),
     'c')
+  .option('-m, --cssmodule [true|false]',
+    `Specify whether to use css module or not`,
+    oneOf(['true', 'false'], 'true'),
+    'true')
   .parse(process.argv)
 
 if (program.args.length === 0) {
   program.help()
   return
 }
-const {
-  language,
-  type,
-  args
-} = program
-createComponent(language, type, args[0])
+const { language, type, args, cssmodule } = program
+
+createComponent(language, type, cssmodule === 'true', args[0])

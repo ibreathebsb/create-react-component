@@ -21,11 +21,21 @@ Save the trouble copy paste and rename when creating new react component with ty
 
   **Specify component type(default to `c`):**
 
-    s: Stateless Functional Component`
+    c: React.Component
 
-    p: PureComponent
+    p: React.PureComponent
 
-    c: Component
+    s: React.SFC(Stateless Functional Component)
+
+
+
+`-m, --type [true|false]`
+
+  **Specify whether to use css module or not(default to `true`):**
+
+    true: use css module
+
+    false: do not use css module
 
 ## Output
 

@@ -10,9 +10,8 @@ const REPLACE = /__REPLACE__/g
  * @param {string} type
  * @param {string} componentName
  */
-module.exports = (lang, type, componentName) => {
+module.exports = (lang, type, cssmodule, componentName) => {
   log.info(`Creating ${componentName}...`)
-  const tempalteDir = path.join(__dirname, `template/${lang}/${type}`)
   const cwd = process.cwd()
   const componentDir = path.join(cwd, componentName)
   // check if file exist
@@ -34,9 +33,9 @@ module.exports = (lang, type, componentName) => {
   }
   // create and write
   const { component, style, index } = tempate[lang][type]
-  const componentTemplate = component(componentName)
-  const styleTemplate = style(componentName)
-  const indexTemplate = index(componentName)
+  const componentTemplate = component(componentName, cssmodule)
+  const styleTemplate = style(componentName, cssmodule)
+  const indexTemplate = index(componentName, cssmodule)
   const pairs = [
     {
       tempate: componentTemplate,

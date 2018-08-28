@@ -1,6 +1,6 @@
 {
   "name": "@isaac.js/create-react-component",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "create react component template with javascript/typescript",
   "main": "index.js",
   "scripts": {
