@@ -27,7 +27,7 @@ Save the trouble copy paste and rename when creating new react component with ty
 
     c: Component
 
-## Output
+## Output
 
 This will generate a directory in the `current working directory`
 
