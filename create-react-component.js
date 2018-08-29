@@ -10,7 +10,7 @@ const REPLACE = /__REPLACE__/g
  * @param {string} type
  * @param {string} componentName
  */
-module.exports = (lang, type, cssmodule, componentName) => {
+module.exports = (lang, type, cssmodule, styled, componentName) => {
   log.info(`Creating ${componentName}...`)
   const cwd = process.cwd()
   const componentDir = path.join(cwd, componentName)
@@ -32,30 +32,42 @@ module.exports = (lang, type, cssmodule, componentName) => {
     return
   }
   // create and write
-  const { component, style, index } = tempate[lang][type]
-  const componentTemplate = component(componentName, cssmodule)
-  const styleTemplate = style(componentName, cssmodule)
-  const indexTemplate = index(componentName, cssmodule)
-  const pairs = [
-    {
+  const {
+    component,
+    style,
+    index
+  } = tempate[lang][type]
+  const componentTemplate = component(componentName, cssmodule, styled)
+  const indexTemplate = index(componentName)
+
+  let pairs = [{
       tempate: componentTemplate,
       filename: `${componentName}.${lang}x`
-    },
-    {
-      tempate: styleTemplate,
-      filename: `${componentName}.scss`
     },
     {
       tempate: indexTemplate,
       filename: `index.${lang}`
     }
   ]
+  if (!styled) {
+    const styleTemplate = style(componentName)
+    pairs.push({
+      tempate: styleTemplate,
+      filename: `${componentName}.scss`
+    })
+  }
+
   try {
     pairs.forEach(
-      ({ tempate, filename }) => {
+      ({
+        tempate,
+        filename
+      }) => {
         const dest = path.resolve(componentDir, filename)
         fs.createFileSync(dest)
-        fs.writeFileSync(dest, tempate, { encoding: 'UTF-8' })
+        fs.writeFileSync(dest, tempate, {
+          encoding: 'UTF-8'
+        })
       }
     )
   } catch (e) {

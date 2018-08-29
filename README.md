@@ -27,19 +27,18 @@ Save the trouble copy paste and rename when creating new react component with ty
 
     s: React.SFC(Stateless Functional Component)
 
+`-m`
 
+  **Specify whether to use css module or not, use css module if `-m` present**
+  **Note that if option `-s` present, this option is ignored!**
 
-`-m, --type [true|false]`
+`-s`
 
-  **Specify whether to use css module or not(default to `true`):**
-
-    true: use css module
-
-    false: do not use css module
+  **Specify whether to use styled components, use styled components if `-s` present**
 
 ## Output
 
-This will generate a directory in the `current working directory`
+Runing `create-react-component -m MyComponent` will generate a directory in the `current working directory`
 
 ```shell
 MyComponent/
@@ -56,6 +55,7 @@ MyComponent/
 
 ### Template for Component.scss
 
+**Note if set -s option, this file will not be genetated**
 
 ```scss
 

@@ -21,16 +21,22 @@ program
                       `,
     oneOf(['s', 'p', 'c'], 'c'),
     'c')
-  .option('-m, --cssmodule [true|false]',
-    `Specify whether to use css module or not`,
-    oneOf(['true', 'false'], 'true'),
-    'true')
+  .option('-m, --cssmodule',
+    `Specify whether to use css module or not, use css module if '-m' present.Note that if option '-s' present, this option is ignored!`)
+  .option('-s, --styled',
+    `Specify whether to use styled components, use styled components if '-s' present`)
   .parse(process.argv)
 
 if (program.args.length === 0) {
   program.help()
   return
 }
-const { language, type, args, cssmodule } = program
+const {
+  language,
+  type,
+  args,
+  cssmodule,
+  styled
+} = program
 
-createComponent(language, type, cssmodule === 'true', args[0])
+createComponent(language, type, !!cssmodule, !!styled, args[0])
