@@ -1,6 +1,11 @@
 # create-react-component
 
-Save the trouble copy paste and rename when creating new react component with typescript/javascript
+A react component template generating tool
+
+Save the trouble copy paste and rename when creating new react component
+
+Support `js` `ts` `css module` `styled components` ...
+
 
 ## Usage
 
