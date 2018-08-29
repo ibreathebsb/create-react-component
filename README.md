@@ -7,6 +7,21 @@ Save the trouble copy paste and rename when creating new react component with ty
 1. install: `npm install -g @isaac.js/create-react-component`
 2. use: `create-react-component [-Options] MyComponent`
 
+## Output
+
+Runing `create-react-component -m MyComponent` will generate a directory in the `current working directory`
+
+```shell
+MyComponent/
+
+  - MyComponent.tsx(or .jsx)
+
+  - MyComponent.scss(this file is removed when you use styled components)
+
+  - index.ts(or .js)
+
+```
+
 ## Options
 
 `-l, --language [LANG]`
@@ -37,20 +52,7 @@ Save the trouble copy paste and rename when creating new react component with ty
 
   **Specify whether to use styled components, use styled components if `-s` present**
 
-## Output
 
-Runing `create-react-component -m MyComponent` will generate a directory in the `current working directory`
-
-```shell
-MyComponent/
-
-  - MyComponent.tsx(or .jsx)
-
-  - MyComponent.scss(this file is removed when you use styled components)
-
-  - index.ts(or .js)
-
-```
 
 ## Template
 
