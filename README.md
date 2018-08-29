@@ -30,6 +30,7 @@ Save the trouble copy paste and rename when creating new react component with ty
 `-m`
 
   **Specify whether to use css module or not, use css module if `-m` present**
+  
   **Note that if option `-s` present, this option is ignored!**
 
 `-s`
@@ -45,7 +46,7 @@ MyComponent/
 
   - MyComponent.tsx(or .jsx)
 
-  - MyComponent.scss
+  - MyComponent.scss(this file is removed when you use styled components)
 
   - index.ts(or .js)
 
@@ -55,7 +56,7 @@ MyComponent/
 
 ### Template for Component.scss
 
-**Note if set -s option, this file will not be genetated**
+**this file is removed when you use styled components**
 
 ```scss
 
